@@ -12,28 +12,19 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     
-    let rootElement = document.getElementById("root")
-
-    function ItemsList({list}){
-        return( <div>
-                <ul>
-                    {list.map((e)=>(
-                        <li>{e}</li>
-                    ))}   
-                </ul>
-            </div> )
-    };
-
-    const List =   ["Apple", "Banana", "Cherry"];
-
-    let Element = (        
+    function Gallery({children}){
+      return <div className="gallery-grid">{children}</div>;   
+    }
+    let element = (
         <>
-        <ItemsList list =  {List}/>
+            <Gallery>
+              <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXWh4NQvr73AjoIQpLWWEAOyABOI1ywzsb9gVXSOaiVNugPfSiHYxlW-zZ8c81ghZlilw&usqp=CAU" />
+              <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXWh4NQvr73AjoIQpLWWEAOyABOI1ywzsb9gVXSOaiVNugPfSiHYxlW-zZ8c81ghZlilw&usqp=CAU" />              
+            </Gallery>        
         </>
-    );
-
-    ReactDOM.createRoot(rootElement).render(Element)
-
-</script>
+    )
+    let rootElement = document.getElementById("root")
+    ReactDOM.createRoot(rootElement).render(element)
+  </script>
 </body>
 </html>
