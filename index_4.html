@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    
+
+
+  
+
+    function App(){
+      const [name , setName] = React.useState("")
+      let [Array, setArray] = React.useState(["Cricket", "Football", "Hockey"])
+
+      function handleChanged(e){
+        setName(e.target.value)
+      }
+
+      function handledelete(e){
+        let i = e.target.value
+        console.log(i)
+        Array.splice(i, 1)
+        setArray(Array)
+     }
+
+      
+
+      
+      function handledelete(e){
+        let i = e.target.value
+        let arr = Array.filter((ele)=>(
+          i!==ele
+        ))
+       setArray(arr)
+     }
+
+      let text ;
+
+      function handleClicked(e){
+         setArray([...Array, name])
+      }
+
+      return (
+
+        <>
+
+          <div>
+              <input type = "text" placeholder = "Type Your Hobby"  value = {text}   onChange = {handleChanged} />
+              <button style = {{marginLeft : "20px"}} onClick = {handleClicked} >Add</button>
+          </div>
+
+          <div style = {{border : "2px solid black" , padding  : "15px", marginTop : "20px"}}>
+
+            Your Hobby 
+          {
+            Array.map((hob, i)=>(
+              <div style ={{border : "2px solid grey" , marginBottom : "20px",  marginTop : "20px" , padding : "15px" }}>
+              <h2>{hob}</h2>
+              <button onClick={handledelete}  value = {hob}>Delete</button>
+             </div>
+            ))
+          }  
+        </div>
+
+        
+        </>
+
+      )
+
+
+    }
+
+    const rootElement = document.getElementById("root");
+    ReactDOM.createRoot(rootElement).render(<App/>);
+
+
+
+  </script>
+</html>
