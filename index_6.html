@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    
+
+    function App(){
+
+       let filt ; 
+
+        let [taskList, setTaskList] = React.useState([
+                {
+                    Ta : "Doing HomeWork",
+                    Ac : true,
+                },
+                {
+                    Ta: "Going Park",
+                    Ac : false,
+                },
+                {   Ta: "Doing Bath",
+                    Ac : true,
+                }
+            ]  
+         )
+
+
+
+
+        let [task, setTask] = React.useState()
+        let[check, setCheck] = React.useState(false)
+        let [count, setCount] = React.useState(0)
+        let [final, setfinal] = React.useState([])
+
+        function handleChange(e){
+            setTask(e.target.value)
+        }
+        function handleCheck(e){
+            setCheck(e.target.checked)
+           
+
+        }
+        
+        function handleSubmit(e){
+            e.preventDefault()
+            
+            let arr1 = [
+                {
+                    Ta : task,
+                    Ac : check
+                }
+            ]
+           
+
+            if((arr1[0].Ta==null)|| ( arr1[0].Ta=="" )){
+             
+                alert("Please Type Your Task!!!")
+            }
+            else{
+                setTaskList([...arr1, ...taskList])
+            }
+
+            
+        }
+        function handleDelete(prop){
+            console.log(prop.target.value)
+            let arr= taskList.filter((ele, i)=>(
+                i!=prop.target.value
+            ))
+            setTaskList(arr)
+        }
+
+
+        function selectingState(e){
+            let set = e.target.value
+
+            console.log(set)
+            
+            
+            let arr2 ; 
+            let arr3 = []
+
+            if(count==0){
+                setfinal([...taskList])
+
+
+                arr3 = taskList
+                if((set ==="Complete")){
+                    arr2= taskList.filter((ele)=>(
+                    ele.Ac == true
+                    ))
+            }
+            else if((set=="All")){
+                arr2= taskList.filter((ele)=>(
+                    ele
+                        )
+                    )
+            }
+            else {
+                arr2= taskList.filter((ele)=>(
+                    ele.Ac == false
+                ))
+                
+            }
+
+            setCount(count+1)
+            console.log("ist")
+
+            }
+            else{
+
+
+                if((set ==="Complete")){
+                arr2= final.filter((ele)=>(
+                    ele.Ac == true
+                        )
+                    )
+                }
+                else if(set=="All"){
+                    arr2= final.filter((ele)=>(
+                    ele
+                        )
+                    )
+                }
+                else {
+                arr2= final.filter((ele)=>(
+                    ele.Ac == false
+                        )
+                    )
+                }
+
+                 console.log("sec")
+            }
+
+
+           
+
+            setTaskList([...arr2])
+
+            
+        }
+
+        return  <>
+                    <div>Hello Prashant'r you ready</div>
+                    <div style ={{display : "flex",  border : "2px solid grey", padding : "15px", justifyContent : "space-around" , backgroundColor : "grey"}}>
+
+                        <form  onSubmit = {handleSubmit}  style ={{display : "flex",  border : "2px solid grey", justifyContent: "space-around" ,padding : "50px", width  : "100%", backgroundColor : "#777" }}>
+
+                            <label>
+                                Task :- <input   value = {task}   onChange ={handleChange}   type = "text" placeholder = "Type Your Task" style ={{padding : "10px", borderRadius  : "10px"}}   />
+                            </label> 
+                            <label>
+                                Completed :- <input checked= {check} type = "checkbox"  onChange={handleCheck}  />
+                            </label>
+                            
+                            <input type = "Submit"   />
+
+                        </form>
+
+                    </div>
+
+
+
+                    <div>
+                        <select  value = {filt} onChange = {selectingState}>
+                            <option value = "">Filter</option>
+                            <option value = "All">All</option>
+                            <option value = "Active">Active</option>
+                            <option value = "Complete" >Complete</option>
+                        </select>    
+                    </div>
+
+
+                    <div style={{padding :"20px", border :"2px solid red", marginTop : "20px"}}>
+                        <h1>Tasks</h1> 
+                        <div style = {{display :"flex", flexDirection : "column",
+                            gap : "10px"
+                        }}>
+                            {taskList.map((ele, i)=>(
+                                
+                                <div key = {i} style ={{display : "flex", padding : "10px", border : "1px solid orange" , justifyContent : "space-around" }}>
+                                    <div>{i+1}</div>
+
+                                    <div>{ele.Ta}</div>
+
+                                    <div>
+                                        {
+                                            ele.Ac ? "Complete" : "Active"
+                                        }
+                                    </div>
+                                    <div>
+                                        <button onClick = {handleDelete}  value ={i}   > 
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                                
+
+                            ))}
+                        </div>   
+                  
+                    </div>
+                </>
+    }
+
+    let rootElement = document.getElementById("root")
+    ReactDOM.createRoot(rootElement).render(<App/>)
+
+  </script>
+
+</html>
