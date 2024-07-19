@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+
+
+
+    function GreetingCard({greeting, name }){
+        return (
+            <div 
+                style ={{ 
+                        padding : "20px", 
+                        border : "2px solid pink", 
+                        backgroundColor : "yellow" 
+                    }}
+                >
+                    <div 
+                        style = {{ 
+                                    display : "flex", 
+                                    justifyContent : "center", 
+                                    alignItem : "center" , 
+                                    fontFamily : "Arial",
+                                    fontWeight : "bold"
+                                }} 
+                        >{greeting}❤️{name}
+                    </div>
+            </div>
+        );
+    };
+
+    function App(){
+
+        let array = [
+            {
+                greeting : "Good Morning",
+                name : "Nitin",
+            },
+            {
+                greeting : "Good Night",
+                name : "Prashant",
+            },
+            {
+                greeting : "Happy Birthday",
+                name : "Gunjan",
+            },
+        ]
+
+
+        
+
+        return (
+                <>
+                    <div style = {{ padding : "20px", border : "2px solid yellow", display : "flex", flexDirection : "column", gap : "20px", backgroundColor : "pink" }} >
+                    {
+                        array.map((ele)=>(
+                            <GreetingCard greeting={ele.greeting}  name = {ele.name} />
+                        ))
+                    }
+                    </div>        
+                </>
+        )
+    }
+
+
+
+    let rootELement = document.getElementById("root")
+    ReactDOM.createRoot(rootELement).render(<App/>)
+    
+  </script>
+</html>
