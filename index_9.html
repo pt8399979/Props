@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    
+    function App(){
+
+
+      let [list, setList] = React.useState([
+                                            {
+                                              Usename : "aman@1014",
+                                              Name : "Aman",
+                                              age : 90, 
+                                              Img  : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWVABJNzFgdJT3iykElttj-FbAcnAkar4lzA&s"
+                                            },
+                                            {
+                                              Usename : "ajay@1005", 
+                                              Name : "Ajay",
+                                              age : 87,
+                                              Img: "https://media.licdn.com/dms/image/C4D03AQFWBXl8FPcfEg/profile-displayphoto-shrink_200_200/0/1516532510841?e=2147483647&v=beta&t=0RhapJd9F58GqWq_nMWPS5olB_j-93faKeUGxRK7tno",
+                                            },
+                                            {
+                                              Usename : "nitin@2131", 
+                                              Name : "Nitin",
+                                              age : 76,
+                                              Img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrMrJcWDM5SQNsduxzBuf3YTjet6J-8XsjRmtatsVmf1qZb_yFWPUptsbdKBBtwsjLdOo&usqp=CAU",
+                                            },
+                                            {
+                                              Usename : "amit@2421", 
+                                              Name : "Amit",
+                                              age : 87,
+                                              Img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoJJNH0jkTCyTv5LxharRhh0vk8KIinEXbV6EbGgcafMiykU4O2aE_5HOak4ejIPHzads&usqp=CAU",
+                                            },
+                                            {
+                                              Usename : "harshu@q2322", 
+                                              Name : "Harshu",
+                                              age : 93,
+                                              Img:"https://media.licdn.com/dms/image/C5603AQFWgSzAg1jLnA/profile-displayphoto-shrink_200_200/0/1606773386824?e=2147483647&v=beta&t=LfkA4s2C0HqEH4iW8k1pWKBUbnVwNk4y4_AYuuYmf5E",
+                                            },
+                                            {
+                                              Usename : "piyush@2323", 
+                                              Name : "Piyush",
+                                              age : 88,
+                                              Img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAh-5tIdjVdTjmHEMZkvMf5aqSL1PRZBBYFxQG9hWozImUiNji8C_2P2upVVVY9WFyMuU&usqp=CAU",
+                                            },
+                                            {
+                                              Usename : "rinku2123", 
+                                              Name : "Rinku",
+                                              age : 74,
+                                              Img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8DFX1XRNyLWPd1C9KR7VbrxG3s-bVawDfsFneWzmx3wOmpDz0n_UUEOQYNv7BB41DiuI&usqp=CAU",
+                                            },
+                                            {
+                                              Usename : "prince@2312", 
+                                              Name : "Prince",
+                                              age : 91,
+                                              Img:"https://media.licdn.com/dms/image/sync/D4E27AQHRz1rVB8cCNg/articleshare-shrink_800/0/1711235607921?e=2147483647&v=beta&t=GME6zxAF_fU7JVv94K0RkG9-Y_LILQoY3lRg_13xhjU",
+                                            },
+                                            {
+                                              Usename : "sumit@2342", 
+                                              Name : "Sumit",
+                                              age : 83,
+                                              Img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi-YP1uAzEGUPp8kb-uVcGnMcj7pkPNJQsuE56fcIQAfPbeIkli_HdGRoSz-yi0xHnTbU&usqp=CAU",
+                                            },
+                                            {
+                                              Usename : "jaydeep@4322", 
+                                              Name : "Jaydeep",
+                                              age : 95,
+                                              Img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQdW9BYkEdPBRFQFwjPwmuqcrXZjpQcdCC0t0NtXWeVY1LJrNHFhZcn9fjVrVY-CJgDxo&usqp=CAU",
+                                            },
+                                            {
+                                              Usename : "rohit@1232", 
+                                              Name : "Rohit",
+                                              age : 75,
+                                              Img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVAE3hxH70YR4K_UzgvXOiYahnflBYexjaXnW_ShN2S2IA1hbqAmQiQvQyNDIbVkTY4T8&usqp=CAU",
+                                            },
+                                            {
+                                              Usename : "ankit@2212", 
+                                              Name : "Ankit" ,
+                                              age : 79,
+                                              Img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKrepeY7UuG_6eWv45Kyg31LAwhmzLowGEB1ymgt7U_0hecEy9n8dEUtwptiMJj-jfApU&usqp=CAU",
+                                            },
+                                            {
+                                              Usename : "priyanshu@1223", 
+                                              Name : "Priyanshu",
+                                              age : 82,
+                                              Img:"https://media.licdn.com/dms/image/C5603AQGHbSjFl4NyqA/profile-displayphoto-shrink_200_200/0/1516446798484?e=2147483647&v=beta&t=q8qlM086o2LHE46ufXA__QE-gBoyTcdOLBvvI-SszoA",
+                                            },
+                                            {
+                                              Usename : "om@2321", 
+                                              Name : "Om",
+                                              age : 99,
+                                              Img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgwvav-EEXoIGKALHg3CbLu_FeRERpBut7p0jBsmuL86PhyCBkkTMrke8LQs7jV9JhH3Y&usqp=CAU",
+                                            },
+                                            {
+                                              Usename : "mayank@2392", 
+                                              Name : "Mayank",
+                                              age : 69,
+                                              Img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTul6dv2fAp4mDt-cpt3VB_wqaBfMdeV6Jbu9IlT7iKby9o9bLxErs-vItvFq6ahe8blA&usqp=CAU",
+                                            },
+                                            {
+                                              Usename : "vikash@2008", 
+                                              Name : "Vikash",
+                                              age : 78,
+                                              Img:"https://media.licdn.com/dms/image/C5603AQHZWqEEcbnVLw/profile-displayphoto-shrink_400_400/0/1516950808612?e=2147483647&v=beta&t=V_F2PwvcGjIA4LdA7rOS6SkVpETdQibyfbyUqjfWbpM",
+                                            },
+                                            {
+                                              Usename : "mohit@2005", 
+                                              Name : "Mohit",
+                                              age : 65,
+                                              Img:"https://media.licdn.com/dms/image/C4E03AQGzkARWynWA4g/profile-displayphoto-shrink_200_200/0/1602609176620?e=2147483647&v=beta&t=EWLlEoB1WOOZx3C_Or6Yhic1DbqQxOXalSebcgmbNjc",
+                                            },
+                                          ])
+
+
+                                         
+      let [text, setText ]= React.useState()
+      
+      function handleChange(e){
+        setText(e.target.value)
+        let count= 0;
+        let len = list.length
+        let arr = []
+        for(let i = 0; i<list.length; i++){
+          let char = list[i].Name
+          let word = e.target.value
+          let count = 0;
+          for(let j = 0; j<(word.length); j++){
+            if(word[j].toLowerCase()===char[j].toLowerCase()){
+              count++
+            }
+          }
+          if(count===word.length){
+          arr.push(list[i])
+            
+
+          }
+
+          
+          
+        }   
+
+        setList(arr)
+      }
+
+        return (
+            <> 
+                <div style = {{ display : "flex", border : "2px solid blue" ,  justifyContent : "center", gap: "20px", padding :"15px" , 
+                }} >
+                      <div>
+                        <input type = "text" placeholder = "Search User" value = {text} onChange = {handleChange} />
+                      </div>
+                   
+                </div>  
+                
+                <div style = {{border : "2px solid grey", marginTop : "20px", padding  : "20px"}}>
+                  <div style ={{padding : "20px", border : "2px solid black"}}>
+                    <h1 style={{textAlign : "center"}}>Users Interface </h1>
+                  </div>  
+                  <div style = {{ display : "flex", flexDirection  : "column", gap : "20px",  marginTop : "40px"}} >
+                      {
+                        list.map((ele, i)=>(
+                          <div key = {i}  style = {{ border  : "2px solid black", padding : "20px", display : "grid", flexDirection : "column", gap : "20px"}}>
+                            <div style ={{height : "150px" , width: "126px "}}>
+                              <img style = {{height:"100%", width : "100%"}} src = {ele.Img} />
+                            </div>
+                            <div>
+                              Name :- {ele.Name}
+                            </div>
+                            <div>
+                              Username :- {ele.Usename}
+                            </div>
+                            <div>
+                              Age :- {ele.age}  
+                            </div>
+                            <div></div>  
+                          </div>
+                        ))
+                        
+                      }  
+                  </div>
+                </div>
+            </>
+        )
+    }
+
+    let rootElement = document.getElementById("root")
+    ReactDOM.createRoot(rootElement).render(<App/>)
+  </script>
+</html>
